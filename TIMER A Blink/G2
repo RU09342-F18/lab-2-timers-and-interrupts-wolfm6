@@ -13,11 +13,11 @@ void main(void)
   P1DIR |= BIT6;                   // sets P1.6 as an output
   P1OUT &= ~BIT6;                  // sets green LED off
 
-  TA0CCR0 = 12000;                 // count limit (16 bit)
+  TA0CCR0 = 12000;                 // controls the speed of LED toggle
   TA0CCTL0 = 0x10;                 // enable Timer A0 interrupts, bit 4=1
   TA0CTL = TASSEL_1 + MC_1;        // timer A0 with ACLK, count up
 
-  TA1CCR0 = 24000;                 // count limit (16 bit)
+  TA1CCR0 = 24000;                 // controls the speed of LED toggle
   TA1CCTL0 = 0x10;                 // enable Timer A1 interrupts, bit 4=1
   TA1CTL = TASSEL_1 + MC_1;        // timer A1 with ACLK, count up
 
