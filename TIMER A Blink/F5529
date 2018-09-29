@@ -10,7 +10,7 @@ void main(void)
   P1DIR |= BIT0;                   // sets P1.0 as an output
   P1OUT &= ~BIT0;                  // sets red LED off
 
-  P4DIR |= BIT7;                   // sets P1.6 as an output
+  P4DIR |= BIT7;                   // sets P4.7 as an output
   P4OUT &= ~BIT7;                  // sets green LED off
 
   TA0CCR0 = 12000;                 // controls the speed of LED toggle
