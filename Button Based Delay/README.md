@@ -1,12 +1,4 @@
-# Button Based Delay
-Now that you have begun to familiarize yourself with the TIMER modules, why don't we make an interesting change to our code from the last lab.
+For the G2, I first enabled crystal. Then set P1.0 and P1.6 which were the LEDs to output. After I set the button P1.3 to be a pull up. Then set both LEDs to be on. Then enabled an interrupt to hold current state of LED when button is pressed. Also making sure to set P1.3 to have high-to-low behavior. After the frequency was set to 10Hz by making TA0CCR0 = 103. ACLK was selected counting up with a divider of 8. An infnite loop is then set. Timer Interrupt is then triggered when clock counts up to CCR0 value for TIMER A. This causes the toggle of the LEDs. Next set the port 1 interrupt to ocurr when the button (P1.3) changes from high to low. Then set if statement where if P1IES AND BIT3 are 1 clear values, changes clock mode out of continuous, and eedge is selected from low to high. Else revert clock mode to up/down and select edge from high to low. Lastly clear interrupt.
 
-## Task
-Setup your microcontroller to initially blink and LED at a rate of 10Hz upon restarting or powering up. Then utilizing one of the buttons on board, a user should be able to set the delay or blinking rate of the LED by holding down a button. The duration in which the button is depressed should then become the new rate at which the LED blinks. As previously stated, you most likely will want to take advantage of the fact that TIMER modules exist and see if you can let them do a bulk of the work for you.
+For the F5299, I first set P1.0 a LED to output. After I set the button P1.1 to be a pull up. Then set LED to be on. Then enabled an interrupt to hold current state of LED when button is pressed. Also making sure to set P1.1 to have high-to-low behavior. After the frequency was set to 10Hz by making TA0CCR0 = 103. ACLK was selected counting up with a divider of 4. An infnite loop is then set. Timer Interrupt is then triggered when clock counts up to CCR0 value for TIMER A. This causes the toggle of the LEDs. Next set the port 1 interrupt to ocurr when the button (P1.0) changes from high to low. Then set if statement where if P1IES AND BIT3 are 1 clear values, changes clock mode out of continuous, and eedge is selected from low to high. Else revert clock mode to up/down and select edge from high to low. Lastly clear interrupt.
 
-### Extra Work
-## Reset Button
-What is a piece of electronics without a reset button? Instead of relying on resetting your processor using the built in reset circuitry, why not instead use another button to reset the rate back to 10Hz.
-
-## Button Based Hertz
-Most likely using two buttons, what if instead of making a delay loop based on the time, the user could instead enter a mode where the number of times they pressed the button would become the number in Hz of the blinking rate? How do you think you would implement that with just one button?
